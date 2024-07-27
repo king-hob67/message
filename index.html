@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Message Collector</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+    #messages {
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Random Message Collector</h1>
+  <form id="message-form">
+    <label for="message">Enter a message:</label>
+    <input type="text" id="message" name="message" placeholder="Type a message...">
+    <button type="submit">Submit</button>
+  </form>
+  <div id="messages"></div>
+
+  <script>
+    const form = document.getElementById('message-form');
+    const messagesDiv = document.getElementById('messages');
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const message = document.getElementById('message').value.trim();
+      if (message) {
+        const messageElement = document.createElement('p');
+        messageElement.textContent = message;
+        messagesDiv.appendChild(messageElement);
+        document.getElementById('message').value = '';
+      }
+    });
+  </script>
+</body>
+</html>
